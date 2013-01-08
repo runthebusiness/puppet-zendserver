@@ -1,0 +1,71 @@
+{
+  "description": "zendserver\n\nInstalls and manages zendserver\n\nAdapted from 5UbZ3r0/httpd module\n\nWe very much liked the functionality of the module 5UbZ3r0/httpd however we are running zendserver-ce so we created this module to bring the functionality of 5UbZ3r0/httpd to our zendserver installations and added some additional functionality of our own.\n\nExamples:\n\n\tzendserver{\"zendserverinstall\":\n\t\twebportalpassword=>'examplepassword'\n\t}\n\n\t# sets up ssl\n\tclass {'zendserver::ssl':\n\t\trequire=>Zendserver[\"zendserverinstall\"]\n\t}\n\t\n\t\n\n\nThis module has been tested in debian squeeze. It requires modifications and testing to work in other flavors of linux -- the code contains placeholders for where these changes would need to be made. If you would like to contribute the code to enable these other flavors please let us know.\n\nAuthors\n-------\nWill Ferrer, Ethan Brooks\n\nLicensees\n-------\n2012 developed under license for Switchsoft LLC http://www.switchsoft.com a \"Direct response telephony company\" as part of it's \"VOIP Call distribution, ROI analysis platform, call recording, and IVR for inbound and outbound sales\" and Run the Business Systems LLC a \"Technology development investment group\" as part of it's \"PHP, Javascript rapid application development framework and MySQL analysis tools\"\n\nLicense\n-------\nLicensed under the terms of the Open Source LGPL 3.0 license.  \n\n\nContact\n-------\nwill.ferrer@runthebusiness.net\n\nSupport\n-------\n\nPlease send tickets and issues to our contact email address or at: https://github.com/runthebusiness/puppet-zendserver/issues\n\nProject Url\n-------\nhttps://github.com/runthebusiness/puppet-zendserver\n",
+  "summary": "Installs and manages zendserver",
+  "source": "UNKNOWN",
+  "dependencies": [
+
+  ],
+  "checksums": {
+    "spec/spec_helper.rb": "ca19ec4f451ebc7fdb035b52eae6e909",
+    "files/spdy/mod-spdy-beta_current_amd64.deb": "834c85038ae50260da3a070cfa0cdbdf",
+    "files/deflate.conf": "1fc678aa967f4fd3c8238c9111019a1d",
+    "manifests/params.pp": "fffa36e5bebd9f43ed147a5be370861e",
+    "files/spdy/mod-spdy-beta_current_i386.rpm": "4abdee35392c1c6d329def2017393403",
+    "lib/puppet/provider/a2mod/modfix.rb": "f4536cdca68d15a235cbb1e0b67e4406",
+    "templates/php.ini.Debian.erb": "b65e28a14e953ca11572112f42c64de4",
+    "templates/ssl.conf.RHEL.erb": "f116618fb85ffdda3cef1fcf5a8210c8",
+    "manifests/restart.pp": "c65751ba591afabe925ec8579776bb9a",
+    "manifests/php.pp": "3b37b701a8ecb8349e2f9ee9d505f54a",
+    "lib/puppet/provider/a2mod/a2mod.rb": "0acf42d3d670a9915c5a3f46ae7335f1",
+    "README": "4f08f735c24ca6fbc6570c3732aea5ee",
+    "templates/httpd.conf.RHEL.erb": "4cbcc29765356aeb9a01beece6738fe8",
+    "templates/php.ini.RHEL.erb": "25cbb760e5fcf81165fbc33ce98fe6d9",
+    "manifests/dev.pp": "848ef3117323f71d6644427fe1d2e0b8",
+    "manifests/ssl.pp": "220f15b31aa7b337904dd816902ce714",
+    "files/error/error.html": "3af8411c82a0725c0ba6ba0fa681bd08",
+    "manifests/vhost.pp": "7e501de9be72b417ea5db712ae6ee37f",
+    "lib/puppet/type/a2mod.rb": "adcf754a076153442eac2beb42736547",
+    "manifests/spdy.pp": "f5929b92a0da62b2c2b1a1de30a62080",
+    "manifests/additional.pp": "b51fa691cd6cda837d6a99c260bfe7a0",
+    "spec/spec.opts": "a600ded995d948e393fbe2320ba8e51c",
+    "templates/vhost-default.conf.erb": "ed64a53af0d7bad762176a98c9ea3e62",
+    "files/spdy/mod-spdy-beta_current_i386.deb": "7d72474e3983f390daf89f1289e08521",
+    "files/spdy/mod-spdy-beta_current_x86_64.rpm": "6d25d03bfb8249f7c6dcd9906909c995",
+    "templates/localized-error-pages.Debian.erb": "578dfd537911a7b8ddcd485640452ac3",
+    "Modulefile": "292434d3b0e39b511c81c8a75e8cc375",
+    "manifests/init.pp": "df908358c3f5058a0f81c93addf574d5"
+  },
+  "types": [
+    {
+      "properties": [
+        {
+          "name": "ensure",
+          "doc": "The basic property that the resource should be in.  Valid values are `present`, `absent`."
+        }
+      ],
+      "providers": [
+        {
+          "name": "a2mod",
+          "doc": "Manage Apache 2 modules on Debian and Ubuntu\n\nRequired binaries: `a2dismod`, `a2enmod`.  Default for `operatingsystem` == `debian, ubuntu`."
+        },
+        {
+          "name": "modfix",
+          "doc": "Dummy provider for A2mod.\n\n    Fake nil resources when there is no crontab binary available. Allows\n    puppetd to run on a bootstrapped machine before a Cron package has been\n    installed. Workaround for: http://projects.puppetlabs.com/issues/2384\n    "
+        }
+      ],
+      "name": "a2mod",
+      "parameters": [
+        {
+          "name": "name",
+          "doc": "The name of the module to be managed"
+        }
+      ],
+      "doc": "Manage Apache 2 modules on Debian and Ubuntu"
+    }
+  ],
+  "license": "Apache License, Version 2.0",
+  "author": "runthebusiness",
+  "name": "runthebusiness-zendserver",
+  "project_page": "https://github.com/runthebusiness/puppet-zendserver",
+  "version": "1.0.0"
+}
