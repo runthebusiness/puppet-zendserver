@@ -66,6 +66,14 @@ define zendserver(
 					key_source  => 'http://repos.zend.com/zend.key',
 					include_src => false
 				}
+				
+				apt::source {"repos-zend-com_zend-server_6_deb_server_non-free":
+          location    => 'http://repos.zend.com/zend-server/6.0/deb',
+          release     => ' ',
+          repos       => 'server non-free',
+          key_source  => 'http://repos.zend.com/zend.key',
+          include_src => false
+        }
 			}
 		}
 		default: {
@@ -104,6 +112,17 @@ define zendserver(
 
 	# install or remove related packages
 	::zendserver::additional{"zendserveradditionalinstall":
+		phpversion=>$phpversion,
+	  extra_extensions_zend_server=>$extra_extensions_zend_server,
+	  java_bridge_zend_server=>$java_bridge_zend_server,
+	  loader_zend_server=>$loader_zend_server,
+	  phpmyadmin_zend_server=>$phpmyadmin_zend_server,
+	  zend_server_framework_dojo=>$zend_server_framework_dojo,
+	  zend_server_framework_extras=>$zend_server_framework_extras,
+	  source_zend_server=>$source_zend_server,
+	  control_panel_zend_server=>$control_panel_zend_server,
+	  ibmdb2_zend_server=>$ibmdb2_zend_server,
+	  pdo_ibm_zendserver=>$pdo_ibm_zendserver,
 		require=>package[$packagename]
 	}
 

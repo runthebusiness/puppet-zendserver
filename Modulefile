@@ -1,5 +1,5 @@
 name 'runthebusiness-zendserver'
-version '1.0.0'
+version '1.1.0'
 
 author 'runthebusiness'
 license 'Apache License, Version 2.0'
